@@ -1,0 +1,379 @@
+@use "./base.scss";
+
+// ============================================================
+// Dusty Bookshelf — clean, modern, Anthropic-inspired theme
+// ============================================================
+
+// --- Global ---
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  letter-spacing: -0.011em;
+  line-height: 1.7;
+}
+
+// --- Typography ---
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-top: 2.25rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-top: 1.75rem;
+}
+
+p,
+li {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+// more readable measure for article content
+article {
+  max-width: 680px;
+
+  & > h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+}
+
+// --- Links ---
+
+a {
+  font-weight: inherit;
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--secondary) 40%, transparent);
+  text-underline-offset: 2px;
+  transition:
+    color 0.15s ease,
+    text-decoration-color 0.15s ease;
+
+  &:hover {
+    text-decoration-color: var(--tertiary);
+  }
+
+  &.internal {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in srgb, var(--secondary) 40%, transparent);
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: var(--tertiary);
+    }
+  }
+}
+
+// --- Blockquotes ---
+
+blockquote {
+  border-left: 2px solid var(--lightgray);
+  padding-left: 1.25rem;
+  color: var(--gray);
+  font-style: italic;
+}
+
+// --- Horizontal rules ---
+
+hr {
+  background-color: var(--lightgray);
+  margin: 3rem auto;
+  max-width: 80px;
+  height: 1px;
+}
+
+// --- Code ---
+
+code {
+  background: color-mix(in srgb, var(--lightgray) 50%, transparent);
+  border-radius: 4px;
+  padding: 0.15rem 0.35rem;
+  font-size: 0.85em;
+}
+
+pre {
+  border: 1px solid var(--lightgray);
+  border-radius: 8px;
+  padding: 0.25rem 0.75rem;
+}
+
+// --- Tables ---
+
+th {
+  border-bottom: 1px solid var(--lightgray);
+  font-weight: 600;
+}
+
+tr {
+  border-bottom: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
+}
+
+// --- Page title (logo area) ---
+
+.page-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+// --- Sidebar ---
+
+.page > #quartz-body .sidebar {
+  padding-top: 4rem;
+}
+
+// --- Explorer ---
+
+.explorer {
+  button h2 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+}
+
+.explorer-content {
+  .folder-outer > ul {
+    border-left: 1px solid color-mix(in srgb, var(--lightgray) 60%, transparent);
+  }
+
+  ul li > a {
+    font-family: var(--bodyFont);
+    font-size: 0.9rem;
+    opacity: 0.65;
+    transition: opacity 0.15s ease;
+
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+.folder-container div > a,
+.folder-container div > button span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+// --- Search ---
+
+.search {
+  & > #search-icon {
+    background: transparent;
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+    opacity: 0.8;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+      border-color: var(--gray);
+    }
+  }
+}
+
+// --- Dark mode toggle ---
+
+.darkmode svg {
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.darkmode:hover svg {
+  opacity: 1;
+}
+
+// --- Graph ---
+
+.graph {
+  & > h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+
+  & > .graph-outer {
+    border: 1px solid var(--lightgray);
+    border-radius: 8px;
+  }
+}
+
+// --- Backlinks ---
+
+.backlinks {
+  & > h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+
+  & > ul > li {
+    font-size: 0.9rem;
+  }
+}
+
+// --- Table of contents ---
+
+.toc {
+  & > h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+
+  & .depth-1 > li > a,
+  & .depth-2 > li > a,
+  & .depth-3 > li > a {
+    font-size: 0.88rem;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// --- Breadcrumbs ---
+
+.breadcrumb-container {
+  opacity: 0.5;
+  font-size: 0.85rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// --- Content meta (date, read time) ---
+
+.content-meta {
+  opacity: 0.5;
+  font-size: 0.88rem;
+}
+
+// --- Tag list ---
+
+a.tag-link {
+  font-size: 0.82rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 20px;
+  padding: 0.15rem 0.6rem;
+  background: transparent;
+  text-decoration: none !important;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    background: var(--highlight);
+  }
+}
+
+// --- Footer ---
+
+footer {
+  opacity: 0.4;
+  font-size: 0.82rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--lightgray);
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// --- Footnotes ---
+
+.footnotes {
+  border-top: 1px solid var(--lightgray);
+  font-size: 0.9rem;
+}
+
+// --- Selection ---
+
+::selection {
+  background: color-mix(in srgb, var(--secondary) 25%, transparent);
+}
+
+// --- Focus styles (accessibility) ---
+
+*:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// --- Reduced motion ---
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// --- Smooth theme transition ---
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// --- Images ---
+
+img {
+  border-radius: 8px;
+}
+
+// --- Navigation progress bar ---
+
+.navigation-progress {
+  height: 2px;
+  opacity: 0.7;
+}
